@@ -1,0 +1,85 @@
+﻿@model PatientModel
+@using MvcApplication2.Models
+@using PagedList
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    var physicianModels = ViewData["Physicians"] as IPagedList<PhysicianModel>;
+}
+<h2>Index</h2>
+<section id="loginForm">
+    Hello, @ViewData.Model.Name @Html.ActionLink("Click Here to Edit Your Account Info", "Edit", "Home", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+    <div>
+        @Helpers.ShowPhotoOrDefault(ViewData.Model)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Vaccinations)
+        @Html.TextAreaFor(model => model.Vaccinations, new { @readonly = "readonly" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Treathments)
+        @Html.TextAreaFor(model => model.Treathments, new { @readonly = "readonly" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.LabResults)
+        @Html.TextAreaFor(model => model.LabResults, new { @readonly = "readonly" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Diseases)
+        @Html.TextAreaFor(model => model.Diseases, new { @readonly = "readonly" })
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Disorders)
+        @Html.TextAreaFor(model => model.Disorders, new { @readonly = "readonly" })
+    </div>
+</section>
+<section class="social" id="socialLoginForm">
+    @using (Html.BeginForm("Index", "Staff", FormMethod.Get))
+    {
+        <h2>Search for Physicians</h2>
+        <p>
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+    }
+    @if (physicianModels != null)
+    {
+        <table>
+            <tr>
+                <th>Actions</th>
+                <th>Photo</th>
+                <th>
+                    @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+                <th>
+                    @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+                </th>
+            </tr>
+
+            @foreach (var item in physicianModels)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Schedule", "Schedule", new { physicianId = item.UserId, patientId = Model.UserId}) |
+                         @Html.ActionLink("Details", "Details", new { id = item.UserId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>
+                </tr>
+            }
+        </table>
+        <text>Page </text> @(physicianModels.PageCount < physicianModels.PageNumber ? 0 : physicianModels.PageNumber)<text>of </text> @physicianModels.PageCount
+        @Html.PagedListPager(physicianModels, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    }
+    <br />
+</section>
+
+

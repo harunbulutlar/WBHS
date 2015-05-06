@@ -1,0 +1,15 @@
+﻿@using MvcApplication2.Models
+
+
+@helper ShowPhotoOrDefault(PatientModel model) {
+    if (model != null && model.Photo != null)
+    {
+        var imageBase64 = Convert.ToBase64String(model.Photo);
+        var imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+        <img src="@imageSrc" width="100" height="100" alt=""/>
+    }
+    else
+    {
+        <img src="~/Images/default-user-image.png" width="100" height="100" alt=""/>
+    }
+}

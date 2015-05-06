@@ -1,0 +1,36 @@
+﻿@model MvcApplication2.Models.PatientModel
+
+@{
+    ViewBag.Title = "Edit";
+    ViewData["StaffReadOnly"] = new {};
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Patient", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model=>model.UserId)
+    @Html.HiddenFor(model=>model.AccountType)
+    @Html.HiddenFor(model=>model.Photo)
+
+    <fieldset>
+        <legend>PatientModel</legend>
+        @Html.Partial("_PatientDetailsPartial")
+        <div class="editor-label">
+           @Html.LabelFor(m => m.PhotoInternal)
+           @Html.TextBoxFor(m => m.PhotoInternal, new { type = "file" })
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
