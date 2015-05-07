@@ -12,8 +12,15 @@ namespace MvcApplication2.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]    //[InitializeSimpleMembership]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
+        [AllowAnonymous]
+        public ActionResult ChangeCurrentCulture(int culture)
+        {
+            SiteSession.CurrentUICulture = culture;
+            Session["CurrentUICulture"] = culture;
+            return Redirect(Request.UrlReferrer.ToString());
+        }
         //
         // GET: /Account/Login
 

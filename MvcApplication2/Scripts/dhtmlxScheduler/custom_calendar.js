@@ -5,7 +5,7 @@ window.app = {
     getAppointments: function (id) {
         var appointments = app.appointments;
         for (var i in appointments) {
-            if (appointments[i].key == id)
+            if (appointments[i].key === id)
                 return appointments[i].label;
         }
         return "";
@@ -22,7 +22,11 @@ window.app = {
 
     checkEventOwner: function (event) {
         var user = app.getQueryString().patientId;
-        if (event.EventCreator && event.EventCreator.UserId && event.EventCreator.UserId != user) {
+        if ((event.CreatorId && event.CreatorId != user) || event.EventType == "blocker") {
+            if (event.EventType == "blocker") {
+                dhtmlx.message(app.physicianBlockMessage);
+                return false;
+            }
             dhtmlx.message(app.othersEventMessage);
             return false;
         }
@@ -65,6 +69,7 @@ window.app = {
     needLoginMessage: "You need to login first",
     pastEventMessage: "You can't add or edit events in the past",
     othersEventMessage: "You can't edit other's event;",
+    physicianBlockMessage: "Physician blocked this time frame",
     initialize: function () {
         var format = scheduler.date.date_to_str("%H:%i");
         var step = 30;
@@ -73,6 +78,36 @@ window.app = {
         scheduler.config.edit_on_create = false;
         scheduler.config.event_duration = 30;
         scheduler.config.cascade_event_count = 1;
+        scheduler.config.time_step = 30;
+        scheduler.config.drag_resize = false;
+        scheduler.renderEvent = function (container, ev) {
+            var container_width = container.style.width; // e.g. "105px"
+
+            // move section
+            var html = "<div class='dhx_event_move my_event_move' style='width: " +
+            container_width + "'></div>";
+
+            // container for event's content
+            html += "<div class='my_event_body'>";
+            html += "<span class='event_date'>";
+            //two options here:show only start date for short events or start+end for long
+            if ((ev.end_date - ev.start_date) / 60000 > 40) {//if event is longer than 40 minutes
+                html += scheduler.templates.event_header(ev.start_date, ev.end_date, ev);
+                html += "</span><br/>";
+            } else {
+                html += scheduler.templates.event_date(ev.start_date) + "</span>";
+            }
+            // displaying event's text
+            html += "<span>" + scheduler.templates.event_text(ev.start_date, ev.end_date, ev) +
+            "</span>" + "</div>";
+
+            // resize section
+            html += "<div class='dhx_event_resize my_event_resize' style='width: " +
+            container_width + "'></div>";
+
+            container.innerHTML = html;
+            return true; //required, true - display a custom form, false - the default form
+        };
         scheduler.templates.hour_scale = function (date) {
             html = "";
             for (var i = 0; i < 60 / step; i++) {
@@ -100,10 +135,18 @@ window.app = {
         });
 
         scheduler.templates.event_class = function (start, end, event) {
-            if (event.EventCreator && event.EventCreator.UserId && event.EventCreator.UserId == app.getQueryString().patientId) {
-                return "manager_event";
+            if (event.EventType == "blocker") {
+                return "blocker_event";
             }
-            return "employee_event";
+            if (event.EventType == "appointment") {
+                if (event.CreatorId == app.getQueryString().patientId) {
+                    return "own_event";
+                } else {
+                    return "employee_event";
+                }
+            }
+
+            return "own_event";
         };
 
         //set minimal available date and update it each minute
@@ -118,39 +161,39 @@ window.app = {
 
         scheduler.attachEvent("onEventCollision", function (ev, evs) {
             for (var i = 0; i < evs.length; i++) {
-                if (ev.user_id == evs[i].user_id) {
+                if (ev.user_id === evs[i].user_id) {
                     dhtmlx.message("There is already an event for <b>" + app.getRoom(ev.room_id) + "</b>");
                 }
             }
             return true;
         });
-        scheduler.attachEvent("onClick", function (id, e){
-             //window.location.href = '/Home/Index/';
+        scheduler.attachEvent("onClick", function () {
+            //window.location.href = '/Home/Index/';
             return true;
         });
-        scheduler.attachEvent("onEventCreated", function (id, e) {
+        scheduler.attachEvent("onEventCreated", function (id) {
             //any custom logic here
-            var event_obj = scheduler.getEvent(id);
-            var start_minutes = event_obj.start_date.getMinutes();
-            var start_hours = event_obj.start_date.getHours();
-            var end_minutes = event_obj.end_date.getMinutes();
-            var end_hours = event_obj.end_date.getHours();
-            if (start_minutes < 30) {
-                start_minutes = 0;
-                end_minutes = 30;
-            } else {
-                start_minutes = 30;
-                end_minutes = 0;
-                end_hours = end_hours - 1;
-            }
-            event_obj.start_date.setMinutes(start_minutes);
-            event_obj.start_date.setHours(start_hours);
-            event_obj.start_date.setSeconds(0);
-
-            event_obj.end_date.setMinutes(end_minutes);
-            event_obj.end_date.setHours(end_hours);
-            event_obj.end_date.setSeconds(0);
-            event_obj.text = app.currentUserLastName + ", " +app.currentUserName;
+            var eventObj = scheduler.getEvent(id);
+            /* var startMinutes = eventObj.start_date.getMinutes();
+             var startHours = eventObj.start_date.getHours();
+             var endMinutes = eventObj.end_date.getMinutes();
+             var endHours = eventObj.end_date.getHours();
+             if (startMinutes < 30) {
+                 startMinutes = 0;
+                 endMinutes = 30;
+             } else {
+                 startMinutes = 30;
+                 endMinutes = 0;
+                 endHours = endHours - 1;
+             }
+             eventObj.start_date.setMinutes(startMinutes);
+             eventObj.start_date.setHours(startHours);
+             eventObj.start_date.setSeconds(0);
+ 
+             eventObj.end_date.setMinutes(endMinutes);
+             eventObj.end_date.setHours(endHours);
+             eventObj.end_date.setSeconds(0);*/
+            eventObj.text = app.currentUserLastName + ", " + app.currentUserName;
 
 
         });

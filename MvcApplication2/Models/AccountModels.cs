@@ -4,13 +4,17 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Web;
+using System.Web.Mvc;
+
+using Resources;
+
 
 namespace MvcApplication2.Models
 {
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection32")
+            : base("DefaultConnection44")
         {
         }
 
@@ -18,6 +22,11 @@ namespace MvcApplication2.Models
         public DbSet<PatientModel> Patients { get; set; }
         public DbSet<PhysicianModel> Physicians { get; set; }
         public DbSet<CalendarEvent> Appointments { get; set; }
+    }
+
+    public class PhysicianModel:UserProfile
+    {
+        public virtual List<CalendarEvent> Appointments { get; set; }
     }
 
     [Table("UserProfile")]
@@ -77,33 +86,28 @@ namespace MvcApplication2.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
         public string OldPassword { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
     public class LoginModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [HiddenInput(DisplayValue = false)]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
 
@@ -111,23 +115,17 @@ namespace MvcApplication2.Models
     {
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$", ErrorMessage = "Password must contain at least one upper case letter, one lower case letter, one digit and one special character.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
 
     }
 
-    [Table("Physician")]
-    public class PhysicianModel : UserProfile
-    {
-        public virtual List<CalendarEvent> Appointments { get; set; }
-    }
     [Table("Patient")]
     public class PatientModel : UserProfile
     {
@@ -159,6 +157,11 @@ namespace MvcApplication2.Models
         [NotMapped, DataType(DataType.Upload)]
         public HttpPostedFileBase PhotoInternal { get; set; }
 
+        public string CurrentMedications { get; set; }
+        public string InconvenientMedications { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string Allergies { get; set; }
+        public string Surgeries { get; set; }
         [DataType(DataType.MultilineText)]
         public string Diseases { get; set; }
         [DataType(DataType.MultilineText)]
@@ -168,8 +171,9 @@ namespace MvcApplication2.Models
         public string LabResults { get; set; }
         public IEnumerable<System.Web.Mvc.SelectListItem> Genders = new[]
         {
-            new System.Web.Mvc.SelectListItem {Value = "Male", Text = "Male"},
-            new System.Web.Mvc.SelectListItem {Value = "Female", Text = "Female"},
+            new System.Web.Mvc.SelectListItem {Value = Resource.Male, Text = Resource.Male},
+            new System.Web.Mvc.SelectListItem {Value = Resource.Female, Text = Resource.Female},
         };
+        public bool IsVisitationInformationPrivate { get; set; }
     }
 }

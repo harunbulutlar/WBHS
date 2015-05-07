@@ -15,7 +15,7 @@ namespace MvcApplication2.Models
         public string text { get; set; }
         public DateTime start_date { get; set; }
         public DateTime end_date { get; set; }
-        public virtual UserProfile EventCreator { get; set; }
+        public int CreatorId { get; set; }
         public DateTime CreationDate { get; set; }
         public string EventType { get; set; }
     }

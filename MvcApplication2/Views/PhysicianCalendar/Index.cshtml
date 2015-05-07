@@ -1,4 +1,5 @@
-﻿@using MvcApplication2.Models
+﻿@using System.Diagnostics
+@using MvcApplication2.Models
 @using System.Web.Script.Serialization
 @{
     var physicianModel = ViewData["Physician"] as PhysicianModel;
@@ -6,33 +7,48 @@
 <!DOCTYPE html>
 <style>
     /*event in day or week view*/
-    .dhx_cal_event.manager_event div {
-        background-color: #009966 !important;
-        color: black !important;
-    }
-
-    .dhx_cal_event.employee_event div {
+    .dhx_cal_event.patient_event div {
         background-color: #FF9933 !important;
         color: black !important;
     }
 
-    /*multi-day event in month view*/
-    .dhx_cal_event_line.manager_event {
+    .dhx_cal_event.own_event div {
         background-color: #009966 !important;
         color: black !important;
     }
 
-    .dhx_cal_event_line.employee_event {
+    .dhx_cal_event.blocker_event div {
+        background-color: #9433ff !important;
+        color: black !important;
+    }
+
+    .dhx_cal_event_line.patient_event div {
         background-color: #FF9933 !important;
         color: black !important;
     }
 
-    /*event with fixed time, in month view*/
-    .dhx_cal_event_clear.manager_event {
+    .dhx_cal_event_line.own_event div {
+        background-color: #009966 !important;
         color: black !important;
     }
 
-    .dhx_cal_event_clear.employee_event {
+    .dhx_cal_event_line.blocker_event div {
+        background-color: #9433ff !important;
+        color: black !important;
+    }
+
+    .dhx_cal_event_clear.patient_event div {
+        background-color: #FF9933 !important;
+        color: black !important;
+    }
+
+    .dhx_cal_event_clear.own_event div {
+        background-color: #009966 !important;
+        color: black !important;
+    }
+
+    .dhx_cal_event_clear.blocker_event div {
+        background-color: #9433ff !important;
         color: black !important;
     }
 </style>
@@ -48,7 +64,10 @@
 <body>
     <script>
         //initialize variables loaded from server side, will introduce a global variable in order to store them:
-        window.app.appointments = @Html.Raw(new JavaScriptSerializer().Serialize(physicianModel.Appointments));    
+        window.app.appointments = @{
+                                      Debug.Assert(physicianModel != null, "physicianModel != null");
+                                  }
+            @Html.Raw(new JavaScriptSerializer().Serialize(physicianModel.Appointments));    
     </script>
     <div style="height: 700px; width: 100%; margin: 0 auto">
         <h2>Doctor @physicianModel.Name 's Schedule</h2>

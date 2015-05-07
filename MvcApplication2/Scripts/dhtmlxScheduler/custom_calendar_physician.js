@@ -1,4 +1,4 @@
-﻿window.app = {
+window.app = {
 
     //Add a helper that we’ll need later:
     //returns room name by id
@@ -21,8 +21,8 @@
     },
 
     checkEventOwner: function (event) {
-        var user = app.getQueryString().patientId;
-        if (event.EventCreator && event.EventCreator.UserId && event.EventCreator.UserId != user) {
+        var user = app.getQueryString().physicianId;
+        if (event.CreatorId &&event.CreatorId != user) {
             dhtmlx.message(app.othersEventMessage);
             return false;
         }
@@ -73,6 +73,7 @@
         scheduler.config.edit_on_create = false;
         scheduler.config.event_duration = 30;
         scheduler.config.cascade_event_count = 1;
+        scheduler.config.time_step = 30;
         scheduler.templates.hour_scale = function (date) {
             html = "";
             for (var i = 0; i < 60 / step; i++) {
@@ -100,10 +101,18 @@
         });
 
         scheduler.templates.event_class = function (start, end, event) {
-            if (event.EventCreator && event.EventCreator.UserId && event.EventCreator.UserId == app.getQueryString().patientId) {
-                return "manager_event";
+            if (event.EventType == "blocker") {
+                return "blocker_event";
             }
-            return "employee_event";
+            if (event.EventType == "appointment") {
+                if (event.CreatorId == app.getQueryString().patientId) {
+                    return "blocker_event";
+                } else {
+                    return "employee_event";
+                }
+            }
+               
+            return "blocker_event";
         };
 
         //set minimal available date and update it each minute
@@ -124,33 +133,33 @@
             }
             return true;
         });
-        scheduler.attachEvent("onClick", function (id, e) {
+        scheduler.attachEvent("onClick", function () {
             //window.location.href = '/Home/Index/';
             return true;
         });
-        scheduler.attachEvent("onEventCreated", function (id, e) {
+        scheduler.attachEvent("onEventCreated", function (id) {
             //any custom logic here
-            var event_obj = scheduler.getEvent(id);
-            var start_minutes = event_obj.start_date.getMinutes();
-            var start_hours = event_obj.start_date.getHours();
-            var end_minutes = event_obj.end_date.getMinutes();
-            var end_hours = event_obj.end_date.getHours();
-            if (start_minutes < 30) {
-                start_minutes = 0;
-                end_minutes = 30;
+            var eventObj = scheduler.getEvent(id);
+            /* var startMinutes = eventObj.start_date.getMinutes();
+            var startHours = eventObj.start_date.getHours();
+            var endMinutes = eventObj.end_date.getMinutes();
+            var endHours = eventObj.end_date.getHours();
+            if (startMinutes < 30) {
+                startMinutes = 0;
+                endMinutes = 30;
             } else {
-                start_minutes = 30;
-                end_minutes = 0;
-                end_hours = end_hours - 1;
+                startMinutes = 30;
+                endMinutes = 0;
+                endHours = endHours - 1;
             }
-            event_obj.start_date.setMinutes(start_minutes);
-            event_obj.start_date.setHours(start_hours);
-            event_obj.start_date.setSeconds(0);
+            eventObj.start_date.setMinutes(startMinutes);
+            eventObj.start_date.setHours(startHours);
+            eventObj.start_date.setSeconds(0);
 
-            event_obj.end_date.setMinutes(end_minutes);
-            event_obj.end_date.setHours(end_hours);
-            event_obj.end_date.setSeconds(0);
-            event_obj.text = app.currentUserLastName + ", " + app.currentUserName;
+            eventObj.end_date.setMinutes(endMinutes);
+            eventObj.end_date.setHours(endHours);
+            eventObj.end_date.setSeconds(0);*/
+            eventObj.text = "Blocker";
 
 
         });

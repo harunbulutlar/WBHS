@@ -9,11 +9,11 @@ using WebMatrix.WebData;
 namespace MvcApplication2.Controllers
 {
     [InitializeSimpleMembership]   
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Web Based Hospital System";
+            ViewBag.Message = Resources.Resource.Title;
             
             PatientModel model;
             if (User.IsInRole("Physician") | User.IsInRole("Technician"))

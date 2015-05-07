@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.Mvc;
 using DHTMLX.Common;
 using DHTMLX.Scheduler;
-using DHTMLX.Scheduler.Controls;
 using DHTMLX.Scheduler.Data;
 using MvcApplication2.Models;
 
@@ -57,10 +56,10 @@ namespace MvcApplication2.Controllers
                 switch (action.Type)
                 {
                     case DataActionTypes.Insert:
-                        updatedEvent.EventCreator = patient;
+                        updatedEvent.CreatorId = patient.UserId;
                         if (
                             physicianModel.Appointments.All(
-                                appointment => appointment.EventCreator != updatedEvent.EventCreator))
+                                appointment => appointment.CreatorId != updatedEvent.CreatorId))
                         {
                             updatedEvent.CreationDate = DateTime.Now;
                             physicianModel.Appointments.Add(updatedEvent);
@@ -73,13 +72,13 @@ namespace MvcApplication2.Controllers
 
                         break;
                     case DataActionTypes.Delete:
-                        var patientAppointment = physicianModel.Appointments.First(appointment => appointment.EventCreator.UserId == patient.UserId && appointment.id == updatedEvent.id);
+                        var patientAppointment = physicianModel.Appointments.First(appointment => appointment.CreatorId == patient.UserId && appointment.id == updatedEvent.id);
                         physicianModel.Appointments.Remove(patientAppointment);
                         //do delete
                         break;
                     default: // "update"
                         {
-                            var appointmentForPatient =physicianModel.Appointments.First(appointment => appointment.EventCreator ==  updatedEvent.EventCreator);
+                            var appointmentForPatient = physicianModel.Appointments.First(appointment => appointment.CreatorId == updatedEvent.CreatorId);
                             if (appointmentForPatient != null)
                             {
                                 updatedEvent.CreationDate = DateTime.Now;
