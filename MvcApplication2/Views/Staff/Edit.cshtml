@@ -12,7 +12,7 @@
     }
 }
 
-<h2>Edit</h2>
+<h2>@Resources.Resource.Edit</h2>
 
 @using (Html.BeginForm(new { enctype = "multipart/form-data" }))
 {
@@ -25,13 +25,13 @@
          @Html.Partial("_PatientDetailsPartial")
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value='@Resources.Resource.Save' />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resources.Resource.BacktoList, "Index")
 </div>
 
 @section Scripts {

@@ -1,7 +1,8 @@
-﻿@model MvcApplication2.Models.LoginModel
+﻿@using Resources
+@model MvcApplication2.Models.LoginModel
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = @Resources.Resource.Login;
 }
 
 <hgroup class="title">
@@ -9,7 +10,7 @@
 </hgroup>
 
 <section id="loginForm">
-<h2>Use a local account to log in.</h2>
+<h2>@Resource.LoginLocalAccount</h2>
 @using (Html.BeginForm(new {ViewBag.ReturnUrl })) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -18,24 +19,28 @@
         <legend>Log in Form</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.UserName)
+                <div>
+                    @Resource.LoginUserName
+                </div>
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
             <li>
-                @Html.LabelFor(m => m.Password)
+                <div>
+                    @Resource.LoginPassword
+                </div>
                 @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </li>
             <li>
+                @Resource.LoginRememberme
                 @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
             </li>
         </ol>
-        <input type="submit" value="Log in" />
+        <input type="submit" value='@Resource.Login' />
     </fieldset>
     <p>
-        @Html.ActionLink("Register", "Register") if you don't have an account.
+        @Resource.NoAccount, @Html.ActionLink(Resources.Resource.Register, "Register")
     </p>
 }
 </section>

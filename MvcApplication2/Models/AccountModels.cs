@@ -14,7 +14,7 @@ namespace MvcApplication2.Models
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection44")
+            : base("DefaultConnection51")
         {
         }
 

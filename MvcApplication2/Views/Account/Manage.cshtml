@@ -1,6 +1,7 @@
-﻿@model MvcApplication2.Models.LocalPasswordModel
+﻿@using Resources
+@model MvcApplication2.Models.LocalPasswordModel
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = Resource.ManageAccount;
 }
 
 <hgroup class="title">
@@ -9,7 +10,7 @@
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+<p>@Resources.Resource.LoggedInNotification<strong>@User.Identity.Name</strong>.</p>
 
 @if (ViewBag.HasLocalPassword)
 {

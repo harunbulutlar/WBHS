@@ -20,7 +20,7 @@ namespace MvcApplication2.Migrations
         protected override void Seed(UsersContext context)
         {
             WebSecurity.InitializeDatabaseConnection(
-                "DefaultConnection44",
+                "DefaultConnection51",
                 "UserProfile",
                 "UserId",
                 "UserName", true);

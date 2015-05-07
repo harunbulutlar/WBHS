@@ -2,40 +2,86 @@
 @using MvcApplication2.Models
 @using PagedList
 @using PagedList.Mvc;
+@using Resources
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = @Resource.Index;
 }
 
 @{
     var physicianModels = ViewData["Physicians"] as IPagedList<PhysicianModel>;
 }
-<h2>Index</h2>
+<h2>@Resource.Index</h2>
 <section id="loginForm">
-    Hello, @ViewData.Model.Name @Html.ActionLink("Click Here to Edit Your Account Info", "Edit", "Home", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+@if (Request.IsAuthenticated) {
+    
+    <text>
+        @Resource.Hello, @ViewData.Model.Name @Html.ActionLink(Resources.Resource.EditAccount, "Edit", "Home", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+    </text>
     <div>
         @Helpers.ShowPhotoOrDefault(ViewData.Model)
     </div>
     <div>
-        @Html.LabelFor(model => model.Vaccinations)
+        <div>
+            @Resource.Vaccinations
+        </div>
         @Html.TextAreaFor(model => model.Vaccinations, new { @readonly = "readonly" })
     </div>
     <div>
-        @Html.LabelFor(model => model.Treathments)
+        <div>
+            @Resource.Treatments
+        </div>
         @Html.TextAreaFor(model => model.Treathments, new { @readonly = "readonly" })
     </div>
     <div>
-        @Html.LabelFor(model => model.LabResults)
+        <div>
+            @Resource.LabResults
+        </div>
         @Html.TextAreaFor(model => model.LabResults, new { @readonly = "readonly" })
     </div>
     <div>
-        @Html.LabelFor(model => model.Diseases)
+        <div>
+            @Resource.CurrentMeds
+        </div>
+        @Html.TextAreaFor(model => model.CurrentMedications, new { @readonly = "readonly" })
+    </div>
+    <div>
+        <div>
+            @Resource.InconvenientMeds
+        </div>
+        @Html.TextAreaFor(model => model.InconvenientMedications, new { @readonly = "readonly" })
+    </div>
+    <div>
+        <div>
+            @Resource.Allergies
+        </div>
+        @Html.TextAreaFor(model => model.Allergies, new { @readonly = "readonly" })
+    </div>
+    <div>
+        <div>
+            @Resource.Surgeries
+        </div>
+        @Html.TextAreaFor(model => model.Surgeries, new { @readonly = "readonly" })
+    </div>
+    <div>
+        <div>
+            @Resource.Diseases
+        </div>
         @Html.TextAreaFor(model => model.Diseases, new { @readonly = "readonly" })
     </div>
     <div>
-        @Html.LabelFor(model => model.Disorders)
+        <div>
+            @Resource.Disorders
+        </div>
         @Html.TextAreaFor(model => model.Disorders, new { @readonly = "readonly" })
     </div>
+    <div>
+        <div>
+            @Resource.IsVisitationInformationPrivate
+        </div>
+        @Html.CheckBoxFor(model => model.IsVisitationInformationPrivate, new { @disabled = "disabled" })
+    </div>
+}
 </section>
 <section class="social" id="socialLoginForm">
     @using (Html.BeginForm("Index", "Staff", FormMethod.Get))

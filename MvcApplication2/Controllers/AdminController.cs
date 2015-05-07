@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using MvcApplication2.Models;
@@ -7,7 +8,7 @@ using PagedList;
 
 namespace MvcApplication2.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         private UsersContext db = new UsersContext();
 

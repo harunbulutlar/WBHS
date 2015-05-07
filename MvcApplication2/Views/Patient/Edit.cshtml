@@ -1,11 +1,12 @@
-﻿@model MvcApplication2.Models.PatientModel
+﻿@using Resources
+@model MvcApplication2.Models.PatientModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Resource.Edit;
     ViewData["StaffReadOnly"] = new {};
 }
 
-<h2>Edit</h2>
+<h2> @Resource.Edit</h2>
 
 @using (Html.BeginForm("Edit", "Patient", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -15,20 +16,21 @@
     @Html.HiddenFor(model=>model.Photo)
 
     <fieldset>
-        <legend>PatientModel</legend>
+        <legend>@Resource.PatientModel</legend>
         @Html.Partial("_PatientDetailsPartial")
         <div class="editor-label">
-           @Html.LabelFor(m => m.PhotoInternal)
-           @Html.TextBoxFor(m => m.PhotoInternal, new { type = "file" })
+            
+            @Resources.Resource.PhotoInternal
+            @Html.TextBoxFor(m => m.PhotoInternal, new { type = "file" })
         </div>
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value='@Resources.Resource.Save' />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resources.Resource.BacktoList, "Index")
 </div>
 
 @section Scripts {

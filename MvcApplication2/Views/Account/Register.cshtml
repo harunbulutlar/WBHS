@@ -1,11 +1,12 @@
-﻿@model MvcApplication2.Models.RegisterModel
+﻿@using Resources
+@model MvcApplication2.Models.RegisterModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = Resource.Register;
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
+    <h2>@Resource.CreateNewAccount</h2>
 </hgroup>
 
 @using (Html.BeginForm()) {
@@ -16,44 +17,62 @@
         <legend>Registration Form</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.Name)
+                <div>
+                    @Resource.RegisterName
+                </div>
                 @Html.TextBoxFor(m => m.Name)
             </li>
             <li>
-                @Html.LabelFor(m => m.Surname)
+                <div>
+                    @Resource.RegisterSurname
+                </div>
                 @Html.TextBoxFor(m => m.Surname)
             </li>
             <li>
-                @Html.LabelFor(m => m.TcCitizenshipNo)
+                <div>
+                    @Resource.RegisterCitizenshipNumber
+                </div>
                 @Html.TextBoxFor(m => m.TcCitizenshipNo)
             </li>
             <li>
-                @Html.LabelFor(m => m.PhoneNumber)
+               <div>
+                    @Resource.RegisterPhoneNumber
+                </div>
                 @Html.TextBoxFor(m => m.PhoneNumber)
             </li>
             <li>
-                @Html.LabelFor(m => m.HomeAddress)
+                <div>
+                    @Resource.RegisterHomeAddress
+                </div>
                 @Html.TextAreaFor(m => m.HomeAddress)
             </li>
              <li>
-                @Html.LabelFor(m => m.Birthday)
+                <div>
+                    @Resource.RegisterBirthday
+                </div>
                 @Html.EditorFor(x => x.Birthday)
                 @Html.ValidationMessageFor(x => x.Birthday)
             </li>
             <li>
-                @Html.LabelFor(m => m.UserName)
+                <div>
+                    @Resource.LoginUserName
+                </div>
                 @Html.TextBoxFor(m => m.UserName,new { @type = "email" })
             </li>
             <li>
-                @Html.LabelFor(m => m.Password)
+                <div>
+                    @Resource.LoginPassword
+                </div>
                 @Html.PasswordFor(m => m.Password)
             </li>
             <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
+                <div>
+                    @Resource.RegisterConfirm
+                </div>
                 @Html.PasswordFor(m => m.ConfirmPassword)
             </li>
         </ol>
-        <input type="submit" value="Register" />
+        <input type="submit" value='@Resource.Submit' />
     </fieldset>
 }
 

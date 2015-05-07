@@ -1,8 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using MvcApplication2.Models;
+@{
+    int culture = SiteSession.CurrentUICulture;
+    string pageTitle = string.Format("{0} - {1}", Resources.Resource.Title, ViewBag.Title);
+}
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@pageTitle</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
@@ -20,11 +25,14 @@
                     </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li onclick="changeCurrentCulture(1)">@Html.ActionLink(@Resources.Resource.Home, "Index", "Home")</li>
+                            <li>@Html.ActionLink(@Resources.Resource.About, "About", "Home")</li>
+                            <li>@Html.ActionLink(@Resources.Resource.Contact, "Contact", "Home")</li>
                         </ul>
                     </nav>
+                        <button name="button" onclick="changeCurrentCulture(1)"><img src="~/Content/tr_flag.png" /></button>                        
+                        <button name="button" onclick="changeCurrentCulture(0)"><img src="~/Content/en_flag.png" /></button>
+
                 </div>
             </div>
         </header>
@@ -37,11 +45,21 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                    <p>&copy; @DateTime.Now.Year - WBHS</p>
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+            var paramObject = {
+                UrlChangeCulture: '@Url.Content("Account/ChangeCurrentCulture")'
+             }
 
+             function changeCurrentCulture(culture) {
+                 document.location = "/Account/ChangeCurrentCulture?culture=" + culture;
+                 return true;
+             }
+
+        </script>
         @Scripts.Render("~/bundles/jquery")
         @RenderSection("scripts", required: false)
     </body>

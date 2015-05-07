@@ -151,6 +151,7 @@ C:\Users\tr1b2669\Downloads\MvcApplication2yeni\MvcApplication2\MvcApplication2\
 C:\Users\tr1b2669\Downloads\MvcApplication2yeni\MvcApplication2\MvcApplication2\MvcApplication2\obj\Debug\MvcApplication2.pdb
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\MvcApplication2.dll
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\MvcApplication2.pdb
+C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\tr\MvcApplication2.resources.dll
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\Antlr3.Runtime.dll
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\DHTMLX.dll
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\DotNetOpenAuth.AspNet.dll
@@ -201,11 +202,10 @@ C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\DotNetOpenAuth.OAuth.Consumer.xml
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\DotNetOpenAuth.OAuth.xml
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\DotNetOpenAuth.OpenId.xml
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.dll
-C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.pdb
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.csprojResolveAssemblyReference.cache
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.App_GlobalResources.Resource.resources
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.App_GlobalResources.Resource.tr.resources
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.csproj.GenerateResource.Cache
-C:\Users\ahb\Desktop\WBHS\MvcApplication2\bin\tr\MvcApplication2.resources.dll
 C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\tr\MvcApplication2.resources.dll
+C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.dll
+C:\Users\ahb\Desktop\WBHS\MvcApplication2\obj\Debug\MvcApplication2.pdb

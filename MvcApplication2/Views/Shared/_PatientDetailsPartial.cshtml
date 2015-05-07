@@ -1,4 +1,5 @@
-﻿@model MvcApplication2.Models.PatientModel
+﻿@using Resources
+@model MvcApplication2.Models.PatientModel
 @if (!ViewData.ContainsKey("DoctorReadOnly"))
 {
     ViewData["DoctorReadOnly"] = new { @readonly = "readonly" };
@@ -15,26 +16,26 @@
     <legend>PatientModel</legend>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Vaccinations)
+         @Resource.Vaccinations
     </div>
     <div class="display-field">
         @Html.TextAreaFor(model => model.Vaccinations, ViewData["StaffReadOnly"])
     </div>
     <div class="display-label">
-         @Html.LabelFor(model => model.LabResults)
+         @Resource.LabResults
     </div>
     <div class="display-field">
         @Html.TextAreaFor(model => model.LabResults, ViewData["DoctorReadOnly"])
     </div>
     <div class="display-label">
-         @Html.LabelFor(model => model.Treathments)
+         @Resource.Treatments
     </div>
     <div class="display-field">
         @Html.TextAreaFor(model => model.Treathments, ViewData["TechnicianReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Height)
+         @Resource.Height
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.Height, ViewData["StaffReadOnly"])
@@ -42,7 +43,7 @@
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Weight)
+         @Resource.Weight
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.Weight, ViewData["StaffReadOnly"])
@@ -50,70 +51,105 @@
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Gender)
+         @Resource.Gender
     </div>
     <div class="display-field">
         @Html.DropDownListFor(model => model.Gender, new SelectList(Model.Genders, "Value", "Text"), ViewData["StaffReadOnly"])
     </div>
+    
+    <div class="display-label">
+         @Resource.CurrentMeds
+    </div>
+    <div class="display-field">
+        @Html.TextAreaFor(model => model.CurrentMedications, ViewData["StaffReadOnly"])
+    </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Diseases)
+         @Resource.InconvenientMeds
+    </div>
+    <div class="display-field">
+        @Html.TextAreaFor(model => model.InconvenientMedications, ViewData["StaffReadOnly"])
+    </div>
+
+    <div class="display-label">
+         @Resource.Allergies
+    </div>
+    <div class="display-field">
+        @Html.TextAreaFor(model => model.Allergies, ViewData["StaffReadOnly"])
+    </div>
+
+    <div class="display-label">
+         @Resource.Surgeries
+    </div>
+    <div class="display-field">
+        @Html.TextAreaFor(model => model.Surgeries, ViewData["StaffReadOnly"])
+    </div>
+
+    <div class="display-label">
+         @Resource.Diseases
     </div>
     <div class="display-field">
         @Html.TextAreaFor(model => model.Diseases, ViewData["StaffReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Disorders)
+         @Resource.Disorders
     </div>
     <div class="display-field">
         @Html.TextAreaFor(model => model.Disorders, ViewData["StaffReadOnly"])
     </div>
-
+    
     <div class="display-label">
-         @Html.LabelFor(model => model.UserName)
+         @Resource.IsVisitationInformationPrivate
+    </div>
+    <div class="display-field">
+        @Html.CheckBoxFor(model => model.IsVisitationInformationPrivate, ViewData["StaffReadOnly"])
+    </div>
+    
+    <div class="display-label">
+         @Resource.LoginUserName
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.UserName, ViewData["StaffReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.TcCitizenshipNo)
+         @Resource.RegisterCitizenshipNumber
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.TcCitizenshipNo, ViewData["StaffReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Name)
+         @Resource.RegisterName
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.Name, ViewData["StaffReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Surname)
+         @Resource.RegisterSurname
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.Surname, ViewData["StaffReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.PhoneNumber)
+         @Resource.RegisterPhoneNumber
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.PhoneNumber, ViewData["StaffReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.HomeAddress)
+         @Resource.RegisterHomeAddress
     </div>
     <div class="display-field">
         @Html.TextAreaFor(model => model.HomeAddress, ViewData["StaffReadOnly"])
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Birthday)
+         @Resource.RegisterBirthday
     </div>
     <div class="display-field">
         @Html.EditorFor(model => model.Birthday, ViewData["StaffReadOnly"])

@@ -1,34 +1,33 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = Resources.Resource.About;
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
 </hgroup>
 
 <article>
     <p>
-        Use this area to provide additional information.
+        @Resources.Resource.ExtraInformation
     </p>
 
     <p>
-        Use this area to provide additional information.
+        @Resources.Resource.ExtraInformation
     </p>
 
     <p>
-        Use this area to provide additional information.
+        @Resources.Resource.ExtraInformation
     </p>
 </article>
 
 <aside>
-    <h3>Aside Title</h3>
+    <h3>@Resources.Resource.QuickLinks</h3>
     <p>
-        Use this area to provide additional information.
+        @Resources.Resource.ExtraInformation
     </p>
     <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li>@Html.ActionLink(@Resources.Resource.Home, "Index", "Home")</li>
+        <li>@Html.ActionLink(@Resources.Resource.About, "About", "Home")</li>
+        <li>@Html.ActionLink(@Resources.Resource.Contact, "Contact", "Home")</li>
     </ul>
 </aside>

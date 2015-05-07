@@ -4,49 +4,49 @@
     <legend>UserProfile</legend>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.UserName)
+         @Resources.Resource.LoginUserName
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.UserName, new { @readonly="readonly" })
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.TcCitizenshipNo)
+        @Resources.Resource.RegisterCitizenshipNumber
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.TcCitizenshipNo, new { @readonly="readonly" })
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Name)
+         @Resources.Resource.LoginUserName
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.Name)
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Surname)
+         @Resources.Resource.RegisterSurname
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.Surname, new { @readonly="readonly" })
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.PhoneNumber)
+        @Resources.Resource.RegisterPhoneNumber
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.PhoneNumber, new { @readonly="readonly" })
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.HomeAddress)
+         @Resources.Resource.RegisterHomeAddress
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.HomeAddress, new { @readonly="readonly" })
     </div>
 
     <div class="display-label">
-         @Html.LabelFor(model => model.Birthday)
+         @Resources.Resource.RegisterBirthday
     </div>
     <div class="display-field">
         @Html.TextBoxFor(model => model.Birthday, new { @readonly="readonly" })

@@ -1,10 +1,10 @@
 ﻿@model MvcApplication2.Models.UserProfile
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = @Resources.Resource.NewAccount;
 }
 
-<h2>Create</h2>
+<h2>@Resources.Resource.NewAccount</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -13,7 +13,7 @@
         <legend>UserProfile</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
+            @Resources.Resource.LoginUserName
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.UserName)
@@ -21,7 +21,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TcCitizenshipNo)
+            @Resources.Resource.RegisterCitizenshipNumber
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.TcCitizenshipNo)
@@ -29,7 +29,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+            @Resources.Resource.RegisterName
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Name)
@@ -37,7 +37,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Surname)
+            @Resources.Resource.RegisterSurname
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Surname)
@@ -45,7 +45,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.PhoneNumber)
+            @Resources.Resource.RegisterPhoneNumber
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.PhoneNumber)
@@ -53,7 +53,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.HomeAddress)
+            @Resources.Resource.RegisterHomeAddress
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.HomeAddress)
@@ -61,24 +61,26 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Birthday)
+            @Resources.Resource.RegisterBirthday
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Birthday)
             @Html.ValidationMessageFor(model => model.Birthday)
         </div>
         <div>
-            @Html.LabelFor(m=>m.AccountType)
-            @Html.DropDownListFor(m=>m.AccountType, new SelectList(Model.AccountTypes, "Value", "Text"))
+            <div>
+                @Resources.Resource.AccountType
+            </div>
+            @Html.DropDownListFor(m => m.AccountType, new SelectList(Model.AccountTypes, "Value", "Text"))
         </div>
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value='@Resources.Resource.Save' />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Resource.BacktoList, "Index")
 </div>
 
 @section Scripts {
