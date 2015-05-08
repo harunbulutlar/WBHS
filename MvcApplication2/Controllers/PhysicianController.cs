@@ -4,7 +4,7 @@ using MvcApplication2.Models;
 
 namespace MvcApplication2.Controllers
 {
-    public class PhysicianController : Controller
+    public class PhysicianController : BaseController
     {
         private UsersContext db = new UsersContext();
 

@@ -86,23 +86,23 @@
 <section class="social" id="socialLoginForm">
     @using (Html.BeginForm("Index", "Staff", FormMethod.Get))
     {
-        <h2>Search for Physicians</h2>
+        <h2>@Resource.SearchPhysicians</h2>
         <p>
-            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-            <input type="submit" value="Search" />
+            @Resource.FindByName: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value=@Resource.Search />
         </p>
     }
     @if (physicianModels != null)
     {
         <table>
             <tr>
-                <th>Actions</th>
-                <th>Photo</th>
+                <th>@Resource.Actions</th>
+                <th>@Resource.PhotoInternal</th>
                 <th>
-                    @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+                    @Html.ActionLink(@Resource.RegisterName, "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
                 </th>
                 <th>
-                    @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+                    @Html.ActionLink(@Resource.RegisterSurname, "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
                 </th>
             </tr>
 
@@ -110,8 +110,8 @@
             {
                 <tr>
                     <td>
-                        @Html.ActionLink("Schedule", "Schedule", new { physicianId = item.UserId, patientId = Model.UserId}) |
-                         @Html.ActionLink("Details", "Details", new { id = item.UserId })
+                        @Html.ActionLink(Resource.Schedule, "Schedule", new { physicianId = item.UserId, patientId = Model.UserId}) |
+                         @Html.ActionLink(Resource.Details, "Details", new { id = item.UserId })
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
@@ -122,7 +122,7 @@
                 </tr>
             }
         </table>
-        <text>Page </text> @(physicianModels.PageCount < physicianModels.PageNumber ? 0 : physicianModels.PageNumber)<text>of </text> @physicianModels.PageCount
+        <text>@Resource.Page </text> @(physicianModels.PageCount < physicianModels.PageNumber ? 0 : physicianModels.PageNumber)<text>@Resource.of </text> @physicianModels.PageCount
         @Html.PagedListPager(physicianModels, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
     }
     <br />

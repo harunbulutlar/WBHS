@@ -9,7 +9,7 @@ using MvcApplication2.Models;
 
 namespace MvcApplication2.Controllers
 {
-    public class CalendarController : Controller
+    public class CalendarController : BaseController
     {
         private UsersContext db = new UsersContext();
         private static int _physicianId = 0;

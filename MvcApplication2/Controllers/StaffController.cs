@@ -7,7 +7,7 @@ using PagedList;
 
 namespace MvcApplication2.Controllers
 {
-    public class StaffController : Controller
+    public class StaffController : BaseController
     {
         private UsersContext db = new UsersContext();
 

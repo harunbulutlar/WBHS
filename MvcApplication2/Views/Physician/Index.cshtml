@@ -1,13 +1,14 @@
-﻿@model MvcApplication2.Models.PhysicianModel
+﻿@using Resources
+@model MvcApplication2.Models.PhysicianModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = @Resource.Index;
 }
 
-<h2>Index</h2>
+<h2>@Resource.Index</h2>
 
 <p>
-    @Html.ActionLink("Go to Calendar", "Calendar",new {id = Model.UserId})
+    @Html.ActionLink(@Resource.GoToCalendar, "Calendar",new {id = Model.UserId})
 </p>
 <table>
     <tr>

@@ -4,6 +4,7 @@ using System.Web.Routing;
 using Microsoft.Web.WebPages.OAuth;
 using MvcApplication2.Filters;
 using MvcApplication2.Models;
+using Resources;
 using WebMatrix.WebData;
 
 namespace MvcApplication2.Controllers
@@ -13,7 +14,7 @@ namespace MvcApplication2.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "asd";//Resources.Resource.Title;
+            ViewBag.Message = Resources.Resource.WBHS;
             
             PatientModel model;
             if (User.IsInRole("Physician") | User.IsInRole("Technician"))
@@ -38,14 +39,14 @@ namespace MvcApplication2.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = Resource.DescriptionPage;
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = Resource.ContactPage;
 
             return View();
         }

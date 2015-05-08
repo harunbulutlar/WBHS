@@ -3,6 +3,7 @@ using System.Transactions;
 using System.Web.Mvc;
 using System.Web.Security;
 using Microsoft.Web.WebPages.OAuth;
+using Resources;
 using WebMatrix.WebData;
 using MvcApplication2.Filters;
 using MvcApplication2.Models;
@@ -57,7 +58,7 @@ namespace MvcApplication2.Controllers
         [AllowAnonymous]
         public ActionResult AdminError()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = Resources.Resource.ErrorPage;
 
             return View();
         }
@@ -75,7 +76,7 @@ namespace MvcApplication2.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", Resources.Resource.ErrLoginFailed);
             return View(model);
         }
 
@@ -171,9 +172,9 @@ namespace MvcApplication2.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? Resource.PasswordChanged
+                : message == ManageMessageId.SetPasswordSuccess ? Resource.PasswordSet
+                : message == ManageMessageId.RemoveLoginSuccess ? Resource.LoginRemoved
                 : "";
             ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -211,7 +212,7 @@ namespace MvcApplication2.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError("", Resource.PasswordNotMatch);
                     }
                 }
             }
@@ -288,34 +289,34 @@ namespace MvcApplication2.Controllers
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "User name already exists. Please enter a different user name.";
+                    return Resource.DuplicateUser;
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
+                    return Resource.DuplicateEmail;
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "The password provided is invalid. Please enter a valid password value.";
+                    return Resource.InvalidPassword;
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "The e-mail address provided is invalid. Please check the value and try again.";
+                    return Resource.InvalidEmail;
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
+                    return Resource.InvalidAnswer;
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return "The password retrieval question provided is invalid. Please check the value and try again.";
+                    return Resource.InvalidQuestion;
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "The user name provided is invalid. Please check the value and try again.";
+                    return Resource.InvalidUserName;
 
                 case MembershipCreateStatus.ProviderError:
-                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return Resource.ProvideError;
 
                 case MembershipCreateStatus.UserRejected:
-                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return Resource.UserRejected;
 
                 default:
-                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+                    return Resource.UnknownError;
             }
         }
 

@@ -1,71 +1,72 @@
-﻿@model MvcApplication2.Models.PhysicianModel
+﻿@using Resources
+@model MvcApplication2.Models.PhysicianModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Resource.Details;
 }
 
-<h2>Details</h2>
+<h2>@Resource.Details</h2>
 
 <fieldset>
     <legend>PhysicianModel</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserName)
+         @Resource.LoginUserName
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.UserName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.TcCitizenshipNo)
+         @Resource.RegisterCitizenshipNumber
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.TcCitizenshipNo)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+         @Resource.RegisterName
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Surname)
+         @Resource.RegisterSurname
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Surname)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.PhoneNumber)
+         @Resource.RegisterPhoneNumber
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.PhoneNumber)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.HomeAddress)
+         @Resource.RegisterHomeAddress
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.HomeAddress)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Birthday)
+         @Resource.RegisterBirthday
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Birthday)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.AccountType)
+         @Resource.AccountType
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.AccountType)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resource.Edit, "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink(@Resource.BacktoList, "Index")
 </p>
