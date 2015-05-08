@@ -5,8 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
-using Resources;
 
+#if USE_LOCAL_RESOURCE
+using MvcApplication2.App_GlobalResources;
+#else
+using Resources;
+#endif
 
 namespace MvcApplication2.Models
 {
@@ -32,7 +36,7 @@ namespace MvcApplication2.Models
     public class UserProfile
     {
         [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
         [Required]
@@ -71,12 +75,12 @@ namespace MvcApplication2.Models
 
         [Display(Name = "Account Type")]
         public string AccountType { get; set; }
-        public IEnumerable<System.Web.Mvc.SelectListItem> AccountTypes = new[]
+        public IEnumerable<SelectListItem> AccountTypes = new[]
         {
-            new System.Web.Mvc.SelectListItem {Value = "Patient", Text = "Patient"},
-            new System.Web.Mvc.SelectListItem {Value = "Physician", Text = "Physician"},
-            new System.Web.Mvc.SelectListItem {Value = "Technician", Text = "Lab Technician"},
-            new System.Web.Mvc.SelectListItem {Value = "Administrator", Text = "Administrator"},
+            new SelectListItem {Value = "Patient", Text = "Patient"},
+            new SelectListItem {Value = "Physician", Text = "Physician"},
+            new SelectListItem {Value = "Technician", Text = "Lab Technician"},
+            new SelectListItem {Value = "Administrator", Text = "Administrator"},
         };
 
     }
@@ -168,10 +172,10 @@ namespace MvcApplication2.Models
 
         [DataType(DataType.MultilineText)]
         public string LabResults { get; set; }
-        public IEnumerable<System.Web.Mvc.SelectListItem> Genders = new[]
+        public IEnumerable<SelectListItem> Genders = new[]
         {
-            new System.Web.Mvc.SelectListItem {Value = Resource.Male, Text = Resource.Male},
-            new System.Web.Mvc.SelectListItem {Value = Resource.Female, Text = Resource.Female},
+            new SelectListItem {Value = Resource.Male, Text = Resource.Male},
+            new SelectListItem {Value = Resource.Female, Text = Resource.Female},
         };
         public bool IsVisitationInformationPrivate { get; set; }
     }
