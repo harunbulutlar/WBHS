@@ -1,18 +1,19 @@
 ﻿@using MvcApplication2.Models
+@using Resources
 @{
     var physicianModel = ViewData["Physician"] as PhysicianModel;
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DHXScheduler initialization sample</title>
+    <title>@Resources.Resource.Schedule</title>
      <script src="@Url.Content("~/Scripts/dhtmlxScheduler/custom_calendar.js")"></script>
     <script src="@Url.Content("~/Scripts/dhtmlxScheduler/custom_calendar_physician.js")"></script>
     @Html.Raw(Model.GenerateLinks())
 </head>
 <body>
 <div style="height: 700px; width: 100%; margin: 0 auto">
-    <h2>Doctor @physicianModel.Name 's Schedule</h2>
+    <h2>@Resources.Resource.Doctor @physicianModel.Name @Resources.Resource.xxSchedule</h2>
     @Html.Raw(Model.GenerateHTML())
     <link href="~/Scripts/dhtmlxScheduler/custom_calendar.css" rel="stylesheet"/>
 </div>

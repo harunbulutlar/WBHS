@@ -9,7 +9,7 @@ using PagedList;
 
 namespace MvcApplication2.Controllers
 {
-    public class PatientController : Controller
+    public class PatientController : BaseController
     {
         private UsersContext db = new UsersContext();
 

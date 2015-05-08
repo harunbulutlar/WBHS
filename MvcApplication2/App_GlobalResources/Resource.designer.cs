@@ -142,6 +142,15 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your contact page.
+        /// </summary>
+        internal static string ContactPage {
+            get {
+                return ResourceManager.GetString("ContactPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -205,6 +214,15 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your app description page.
+        /// </summary>
+        internal static string DescriptionPage {
+            get {
+                return ResourceManager.GetString("DescriptionPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string Details {
@@ -232,6 +250,33 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Doctor.
+        /// </summary>
+        internal static string Doctor {
+            get {
+                return ResourceManager.GetString("Doctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A user name for that e-mail address already exists. Please enter a different e-mail address..
+        /// </summary>
+        internal static string DuplicateEmail {
+            get {
+                return ResourceManager.GetString("DuplicateEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User name already exists. Please enter a different user name..
+        /// </summary>
+        internal static string DuplicateUser {
+            get {
+                return ResourceManager.GetString("DuplicateUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
@@ -250,11 +295,29 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The user name or password provided is incorrect..
+        /// </summary>
+        internal static string ErrLoginFailed {
+            get {
+                return ResourceManager.GetString("ErrLoginFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Error page.
+        /// </summary>
+        internal static string ErrorPage {
+            get {
+                return ResourceManager.GetString("ErrorPage", resourceCulture);
             }
         }
         
@@ -300,6 +363,15 @@ namespace MvcApplication2.App_GlobalResources {
         public static string General {
             get {
                 return ResourceManager.GetString("General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go To Calendar.
+        /// </summary>
+        internal static string GoToCalendar {
+            get {
+                return ResourceManager.GetString("GoToCalendar", resourceCulture);
             }
         }
         
@@ -354,6 +426,51 @@ namespace MvcApplication2.App_GlobalResources {
         public static string Index {
             get {
                 return ResourceManager.GetString("Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password retrieval answer provided is invalid. Please check the value and try again..
+        /// </summary>
+        internal static string InvalidAnswer {
+            get {
+                return ResourceManager.GetString("InvalidAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The e-mail address provided is invalid. Please check the value and try again..
+        /// </summary>
+        internal static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password provided is invalid. Please enter a valid password value..
+        /// </summary>
+        internal static string InvalidPassword {
+            get {
+                return ResourceManager.GetString("InvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password retrieval question provided is invalid. Please check the value and try again..
+        /// </summary>
+        internal static string InvalidQuestion {
+            get {
+                return ResourceManager.GetString("InvalidQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user name provided is invalid. Please check the value and try again..
+        /// </summary>
+        internal static string InvalidUserName {
+            get {
+                return ResourceManager.GetString("InvalidUserName", resourceCulture);
             }
         }
         
@@ -426,6 +543,15 @@ namespace MvcApplication2.App_GlobalResources {
         public static string LoginRememberme {
             get {
                 return ResourceManager.GetString("LoginRememberme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The external login was removed..
+        /// </summary>
+        internal static string LoginRemoved {
+            get {
+                return ResourceManager.GetString("LoginRemoved", resourceCulture);
             }
         }
         
@@ -520,6 +646,33 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your password has been changed..
+        /// </summary>
+        internal static string PasswordChanged {
+            get {
+                return ResourceManager.GetString("PasswordChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The current password is incorrect or the new password is invalid..
+        /// </summary>
+        internal static string PasswordNotMatch {
+            get {
+                return ResourceManager.GetString("PasswordNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your password has been set..
+        /// </summary>
+        internal static string PasswordSet {
+            get {
+                return ResourceManager.GetString("PasswordSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patient.
         /// </summary>
         public static string Patient {
@@ -570,6 +723,15 @@ namespace MvcApplication2.App_GlobalResources {
         public static string PhotoInternal {
             get {
                 return ResourceManager.GetString("PhotoInternal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator..
+        /// </summary>
+        internal static string ProvideError {
+            get {
+                return ResourceManager.GetString("ProvideError", resourceCulture);
             }
         }
         
@@ -691,11 +853,29 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Schedule.
+        /// </summary>
+        internal static string Schedule {
+            get {
+                return ResourceManager.GetString("Schedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search.
         /// </summary>
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search for Physicians.
+        /// </summary>
+        internal static string SearchPhysicians {
+            get {
+                return ResourceManager.GetString("SearchPhysicians", resourceCulture);
             }
         }
         
@@ -754,6 +934,24 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator..
+        /// </summary>
+        internal static string UnknownError {
+            get {
+                return ResourceManager.GetString("UnknownError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator..
+        /// </summary>
+        internal static string UserRejected {
+            get {
+                return ResourceManager.GetString("UserRejected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vaccinations.
         /// </summary>
         public static string Vaccinations {
@@ -763,11 +961,29 @@ namespace MvcApplication2.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Web Based Hospital System.
+        /// </summary>
+        internal static string WBHS {
+            get {
+                return ResourceManager.GetString("WBHS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Weight.
         /// </summary>
         public static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;s Schedule.
+        /// </summary>
+        internal static string xxSchedule {
+            get {
+                return ResourceManager.GetString("xxSchedule", resourceCulture);
             }
         }
     }

@@ -354,4 +354,76 @@
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="ContactPage" xml:space="preserve">
+    <value>Your contact page</value>
+  </data>
+  <data name="DescriptionPage" xml:space="preserve">
+    <value>Your app description page</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>A user name for that e-mail address already exists. Please enter a different e-mail address.</value>
+  </data>
+  <data name="DuplicateUser" xml:space="preserve">
+    <value>User name already exists. Please enter a different user name.</value>
+  </data>
+  <data name="ErrLoginFailed" xml:space="preserve">
+    <value>The user name or password provided is incorrect.</value>
+  </data>
+  <data name="ErrorPage" xml:space="preserve">
+    <value>Your Error page</value>
+  </data>
+  <data name="GoToCalendar" xml:space="preserve">
+    <value>Go To Calendar</value>
+  </data>
+  <data name="InvalidAnswer" xml:space="preserve">
+    <value>The password retrieval answer provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>The e-mail address provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+  </data>
+  <data name="InvalidQuestion" xml:space="preserve">
+    <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>The user name provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="LoginRemoved" xml:space="preserve">
+    <value>The external login was removed.</value>
+  </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>The current password is incorrect or the new password is invalid.</value>
+  </data>
+  <data name="PasswordSet" xml:space="preserve">
+    <value>Your password has been set.</value>
+  </data>
+  <data name="ProvideError" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="SearchPhysicians" xml:space="preserve">
+    <value>Search for Physicians</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="UserRejected" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="WBHS" xml:space="preserve">
+    <value>Web Based Hospital System</value>
+  </data>
+  <data name="xxSchedule" xml:space="preserve">
+    <value>'s Schedule</value>
+  </data>
 </root>

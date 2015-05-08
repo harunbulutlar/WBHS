@@ -351,4 +351,76 @@
   <data name="Search" xml:space="preserve">
     <value>Ara</value>
   </data>
+  <data name="ContactPage" xml:space="preserve">
+    <value>Iletisim Sayfasi</value>
+  </data>
+  <data name="DescriptionPage" xml:space="preserve">
+    <value>Hakkimizda Sayfasi</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Doktor</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>Girilen E-Posta sistemde kayitli. Baska bir E-Posta deneyiniz.</value>
+  </data>
+  <data name="DuplicateUser" xml:space="preserve">
+    <value>Kullanici adi daha once alinmis. Baska bir kullanici adi deneyiniz.</value>
+  </data>
+  <data name="ErrLoginFailed" xml:space="preserve">
+    <value>Kullanici adi veya parolanizi kontrol ediniz.</value>
+  </data>
+  <data name="ErrorPage" xml:space="preserve">
+    <value>Hata Sayfasi</value>
+  </data>
+  <data name="GoToCalendar" xml:space="preserve">
+    <value>Takvime Git</value>
+  </data>
+  <data name="InvalidAnswer" xml:space="preserve">
+    <value>Parola kurtarma cevabi yanlis. Lutfen kontrol edip tekrar deneyiniz.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>E-Posta gecerli degil. Lutfen gecerli bir E-Posta deneyiniz.</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Parola gecerli degil. Lutfen gecerli bir parola deneyiniz.</value>
+  </data>
+  <data name="InvalidQuestion" xml:space="preserve">
+    <value>Parola kurtarma sorusu yanlis. Lutfen kontrol edip tekrar deneyiniz.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Kullanici Adi gecersiz. Lutfen kontrol edip tekrar deneyiniz.</value>
+  </data>
+  <data name="LoginRemoved" xml:space="preserve">
+    <value>Oturum sonlandirildi.</value>
+  </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Parolaniz basariyla degistirilmistir.</value>
+  </data>
+  <data name="PasswordNotMatch" xml:space="preserve">
+    <value>Mevcut parola ve yeni parolanizi kontrol ediniz.</value>
+  </data>
+  <data name="PasswordSet" xml:space="preserve">
+    <value>Parola basariyla kaydedildi.</value>
+  </data>
+  <data name="ProvideError" xml:space="preserve">
+    <value>Kimlik dogrulama basarisiz. Lutfen bilgilerinizi kontrol edip tekrar deneyiniz. Eger problem devam ederse sistem yoneticisiyle irtibata geciniz.</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Randevu</value>
+  </data>
+  <data name="SearchPhysicians" xml:space="preserve">
+    <value>Doktor Aratma</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Bir hata olustu. Lutfen bilgilerinizi kontrol edip tekrar deneyiniz. Eger problem devam ederse sistem yoneticisiyle irtibata geciniz.</value>
+  </data>
+  <data name="UserRejected" xml:space="preserve">
+    <value>Kullanici olusturma istegi iptal edildi. Lutfen bilgilerinizi kontrol edip tekrar deneyiniz. Eger problem devam ederse sistem yoneticisiyle irtibata geciniz.</value>
+  </data>
+  <data name="WBHS" xml:space="preserve">
+    <value>WEB Tabanli Hastane Sistemi</value>
+  </data>
+  <data name="xxSchedule" xml:space="preserve">
+    <value>Randevu Programi</value>
+  </data>
 </root>
