@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
-
 using Resources;
 
 
@@ -14,7 +13,7 @@ namespace MvcApplication2.Models
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection51")
+            : base("DefaultConnection52")
         {
         }
 

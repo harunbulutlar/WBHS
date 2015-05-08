@@ -265,6 +265,7 @@
     <Content Include="App_Code\Helpers.cshtml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Images\default-user-image.png" />
+    <Content Include="Scripts\dhtmlxScheduler\custom_calendar.css" />
     <Content Include="Scripts\dhtmlxScheduler\custom_calendar_physician.js" />
     <Content Include="Scripts\dhtmlxScheduler\custom_calendar.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler-responsive.js" />

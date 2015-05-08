@@ -27,8 +27,8 @@ namespace MvcApplication2.Controllers
                 LoadData = true,
                 EnableDataprocessor = true,
             };
-            scheduler.BeforeInit.Add(string.Format("initResponsive({0})", scheduler.Name));
-            scheduler.AfterInit = new List<string> { "app.initialize();" };
+            //scheduler.BeforeInit.Add(string.Format("initResponsive({0})", scheduler.Name));
+            scheduler.BeforeInit.Add("app.initialize();");
 
             return View(scheduler);
         }

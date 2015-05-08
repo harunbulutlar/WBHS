@@ -13,7 +13,7 @@ namespace MvcApplication2.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = Resources.Resource.Title;
+            ViewBag.Message = "asd";//Resources.Resource.Title;
             
             PatientModel model;
             if (User.IsInRole("Physician") | User.IsInRole("Technician"))
